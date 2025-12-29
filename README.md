@@ -144,9 +144,9 @@ $$\nabla_V f = (P_\Omega(UV^T) - P_\Omega(M))^T U + \lambda V$$
 
 #### 5.2.2 收敛性分析
 
-![](lasso_convergence_cloud_100_trials(200,50)[1].png)
+![](收敛性分析12.png)
 
-![](lasso_convergence_cloud_100_trials(200,50)[1].png)
+![](收敛性分析34.png)
 
 ### 5.3 空间复杂度对比
 - **Soft-Impute**: $O(nm)$（稠密矩阵）
