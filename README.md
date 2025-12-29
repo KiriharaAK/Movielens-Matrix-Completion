@@ -23,7 +23,11 @@ $$\min_X \text{Rank}(X) \quad \text{s.t.} \quad P_\Omega(X) = P_\Omega(M)$$
 
 $$\min_X \frac{1}{2} \|P_\Omega(X) - P_\Omega(M)\|_F^2 + \lambda \|X\|_*$$
 
-其中,$\|X\|_* = \sum_{i=1}^{\min(m,n)} \sigma_i(X)$为核范数（奇异值之和）。
+其中, 
+
+$$\|X\|_* = \sum_{i=1}^{\min(m,n)} \sigma_i(X)$$
+
+为核范数（奇异值之和）。
 
 #### 2.1.2 Soft-Impute算法原理
 迭代更新公式：
@@ -118,8 +122,8 @@ $$\nabla_V f = (P_\Omega(UV^T) - P_\Omega(M))^T U + \lambda V$$
 | 方法 | 每迭代复杂度 | 收敛速度 | 总复杂度 |
 |------|-------------|----------|----------|
 | Soft-Impute | $O(rnm)$ | $O(1/\epsilon)$ | $O(rnm/\epsilon)$ |
-| 交替最小化 | $O(r|\Omega|)$ | 线性收敛 | $O(r|\Omega|\log(1/\epsilon))$ |
-| 梯度下降 | $O(r|\Omega|)$ | $O(1/\epsilon)$ | $O(r|\Omega|/\epsilon)$ |
+| 交替最小化 | $O(r\|\Omega\|)$ | 线性收敛 | $O(r\|\Omega\|\log(1/\epsilon))$ |
+| 梯度下降 | $O(r\|\Omega\|)$ | $O(1/\epsilon)$ | $O(r\|\Omega\|/\epsilon)$ |
 
 其中：
 - $n,m$：矩阵维度
