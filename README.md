@@ -58,6 +58,36 @@ $$f(U,V) = \frac{1}{2} \|P_\Omega(UV^T) - P_\Omega(M)\|_F^2 + \frac{\lambda}{2}(
 $$\nabla_U f = (P_\Omega(UV^T) - P_\Omega(M))V + \lambda U$$
 $$\nabla_V f = (P_\Omega(UV^T) - P_\Omega(M))^T U + \lambda V$$
 
+#### 2.2.3 带特殊正则化的矩阵补全（MC + Regularization）
+
+**目标函数**：
+$$\min_{U,V} \frac{1}{2} \sum_{(i,j)\in\Omega} (U_i V_j^T - M_{ij})^2 + \frac{\lambda_1}{2}(\|U\|_F^2 + \|V\|_F^2) + \lambda_2 Q(U)$$
+
+**特殊正则化项**：
+
+$$Q(U) = \sum_{i=1}^{n} \left(\max\left(\|U_i\|_2 - \alpha, 0\right)\right)^4 = \sum_{i=1}^{n} \left(\|U_i\|_2 - \alpha\right)_+^4$$
+
+其中：
+- $U_i$表示矩阵 $U$的第 $i$行（用户$i$的隐因子向量）
+- $\|U_i\|_2$为 $\ell_2$范数
+- $\alpha > 0$为阈值参数
+- $(\cdot)_+ = \max(\cdot, 0)$为正部函数
+
+**正则化项性质分析**：
+1. **非凸非光滑性**：当 $\|U_i\|_2 < \alpha$时，正则化项为零；当 $\|U_i\|_2 > \alpha$时，正则化项为四次函数
+2. **稀疏性促进**：鼓励用户因子的 $\ell_2$范数不超过 $\alpha$，防止某些用户的隐因子过大
+3. **平衡效应**：避免少数用户主导推荐结果，提高模型的鲁棒性
+
+**梯度计算**：
+
+$$\nabla_{U_i} Q(U) = 
+\begin{cases} 
+4(\|U_i\|_2 - \alpha)^3 \cdot \frac{U_i}{\|U_i\|_2}, & \text{if } \|U_i\|_2 > \alpha \\
+0, & \text{otherwise}
+\end{cases}$$
+
+**优化方法**：使用随机梯度下降，初始化采用随机正态分布。
+
 ## 3. 实验设置
 
 ### 3.1 数据集
