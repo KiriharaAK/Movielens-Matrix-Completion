@@ -131,7 +131,24 @@ $$\nabla_V f = (P_\Omega(UV^T) - P_\Omega(M))^T U + \lambda V$$
 - $|\Omega|$：观测数
 - $\epsilon$：目标精度
 
-### 5.2 空间复杂度对比
+### 5.2 实际运行时间分析
+
+#### 5.2.1 各方法训练时间汇总（5折平均值）
+
+| 方法 | 平均训练时间（秒） | 标准差（秒） | 相对速度比（以AM为基准） |
+|------|------------------|--------------|------------------------|
+| Soft-Impute | 9,431.5 | 1,820.2 | 0.05× |
+| Alternating Minimization | 525.9 | 18.3 | 1.00×（基准） |
+| Gradient Descent (Spectral Init) | 2,871.8 | 570.2 | 0.18× |
+| MC + Regularization (Random Init) | 187.3 | 27.3 | 2.81× |
+
+#### 5.2.2 收敛性分析
+
+![](lasso_convergence_cloud_100_trials(200,50)[1].png)
+
+![](lasso_convergence_cloud_100_trials(200,50)[1].png)
+
+### 5.3 空间复杂度对比
 - **Soft-Impute**: $O(nm)$（稠密矩阵）
 - **交替最小化**: $O(r(n+m))$（因子矩阵）
 - **梯度下降**: $O(r(n+m))$（因子矩阵）
