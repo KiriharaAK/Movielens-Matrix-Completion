@@ -1,0 +1,84 @@
+第1折:
+训练集大小: 8000043, 测试集大小: 2000011
+
+方法: Soft-Impute
+警告: 矩阵过大 (69878×10677=746.1M元素)，
+      建议使用子样本或减小矩阵尺寸
+  测试RMSE: 0.9141, 训练时间: 8967.21秒
+
+方法: Alternating Minimization
+  测试RMSE: 0.8269, 训练时间: 508.52秒
+
+方法: Gradient Descent (Spectral Init)
+  测试RMSE: 2.1804, 训练时间: 2656.41秒
+
+方法: MC + Regularization (Random Init)
+  测试RMSE: 2.7274, 训练时间: 175.85秒
+
+第2折:
+训练集大小: 8000043, 测试集大小: 2000011
+
+方法: Soft-Impute
+警告: 矩阵过大 (69878×10677=746.1M元素)，
+      建议使用子样本或减小矩阵尺寸
+  测试RMSE: 0.9229, 训练时间: 7395.24秒
+
+方法: Alternating Minimization
+  测试RMSE: 0.8262, 训练时间: 523.76秒
+
+方法: Gradient Descent (Spectral Init)
+  测试RMSE: 2.2096, 训练时间: 2017.45秒
+
+方法: MC + Regularization (Random Init)
+  测试RMSE: 2.7270, 训练时间: 143.98秒
+
+第3折:
+训练集大小: 8000043, 测试集大小: 2000011
+
+方法: Soft-Impute
+警告: 矩阵过大 (69878×10677=746.1M元素)，
+      建议使用子样本或减小矩阵尺寸
+  测试RMSE: 0.9161, 训练时间: 9524.01秒
+
+方法: Alternating Minimization
+  测试RMSE: 0.8265, 训练时间: 509.41秒
+
+方法: Gradient Descent (Spectral Init)
+  测试RMSE: 2.2051, 训练时间: 3286.48秒
+
+方法: MC + Regularization (Random Init)
+  测试RMSE: 2.7267, 训练时间: 194.08秒
+
+第4折:
+训练集大小: 8000043, 测试集大小: 2000011
+
+方法: Soft-Impute
+警告: 矩阵过大 (69878×10677=746.1M元素)，
+      建议使用子样本或减小矩阵尺寸
+  测试RMSE: 0.9180, 训练时间: 9576.61秒
+
+方法: Alternating Minimization
+  测试RMSE: 0.8269, 训练时间: 533.26秒
+
+方法: Gradient Descent (Spectral Init)
+  测试RMSE: 2.1813, 训练时间: 3339.86秒
+
+方法: MC + Regularization (Random Init)
+  测试RMSE: 2.7264, 训练时间: 220.27秒
+
+第5折:
+训练集大小: 8000044, 测试集大小: 2000010
+
+方法: Soft-Impute
+警告: 矩阵过大 (69878×10677=746.1M元素)，
+      建议使用子样本或减小矩阵尺寸
+  测试RMSE: 0.9139, 训练时间: 12694.49秒
+
+方法: Alternating Minimization
+  测试RMSE: 0.8261, 训练时间: 555.05秒
+
+方法: Gradient Descent (Spectral Init)
+  测试RMSE: 2.1908, 训练时间: 3058.97秒
+
+方法: MC + Regularization (Random Init)
+  测试RMSE: 2.7277, 训练时间: 202.32秒
