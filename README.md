@@ -234,12 +234,14 @@ $$\nabla_{U_i} Q(U) =
 ### 2.2 第二次实验的优化策略
 
 #### 2.2.1 中心化处理（Mean-Centering）
-**数学原理**：
+**数学原理**: 
+
 $$\tilde{M}_{ij} = M_{ij} - (\mu + b_u(i) + b_i(j))$$
+
 其中：
 - $\mu$：全局平均评分
-- $b_u(i)$：用户$i$的偏置项
-- $b_i(j)$：物品$j$的偏置项
+- $b_u(i)$：用户 $i$ 的偏置项
+- $b_i(j)$：物品 $j$ 的偏置项
 
 **优化效果**：
 - 减少数据方差，提高数值稳定性
@@ -254,7 +256,7 @@ $$b_i(j) = \frac{\sum_{i\in\Omega_j} M_{ij}}{|\Omega_j|} - \mu$$
 
 #### 2.2.3 随机SVD优化
 使用`sklearn.utils.extmath.randomized_svd`：
-- 计算复杂度：$O(rk(n+m) + k^3)$，其中$k$为幂迭代次数
+- 计算复杂度: $O(rk(n+m) + k^3)$，其中 $k$ 为幂迭代次数
 - 内存需求：仅需存储部分矩阵
 - 支持大规模矩阵分解
 
@@ -265,12 +267,15 @@ $$b_i(j) = \frac{\sum_{i\in\Omega_j} M_{ij}}{|\Omega_j|} - \mu$$
 
 ### 2.3 改进后算法的数学模型
 **优化问题**：
+
 $$\min_{X_{\text{center}}} \frac{1}{2} \|P_\Omega(X_{\text{center}}) - P_\Omega(\tilde{M})\|_F^2 + \lambda \|X_{\text{center}}\|_*$$
 
 **最终预测**：
+
 $$\hat{M}_{ij} = \mu + b_u(i) + b_i(j) + X_{\text{center},ij}$$
 
 **软阈值SVD更新**：
+
 $$X_{\text{center}}^{(k+1)} = U^{(k)} \cdot \text{diag}(\max(\sigma_i^{(k)} - \lambda, 0)) \cdot V^{(k)T}$$
 
 ## 3. 实验设置
@@ -338,8 +343,11 @@ $$X_{\text{center}}^{(k+1)} = U^{(k)} \cdot \text{diag}(\max(\sigma_i^{(k)} - \l
 ### 4.3 收敛特性分析
 
 #### 4.3.1 收敛曲线观察
+![](收敛性分析5.png)
+横坐标: '时间 (秒)',
+纵坐标: '中心化MSE'
 从提供的收敛曲线图（时间 vs 中心化MSE）分析：
-- 曲线从~0.71快速下降至~0.64
+- 曲线从0.71快速下降至0.64
 - 收敛过程平滑稳定，无剧烈震荡
 - 在300秒左右基本收敛，后期改进有限
 
